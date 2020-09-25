@@ -9,12 +9,8 @@ on:
       - master
 
 jobs:
-  quality:
-    runs-on: macos-latest
-
   test:
     runs-on: macos-latest
-    needs: quality
 
     env:
       HOMEBREW_NO_AUTO_UPDATE: "1"
