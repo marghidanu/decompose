@@ -1,0 +1,22 @@
+version: "1"
+
+jobs:
+  main:
+    commands:
+      - shards build
+    needs:
+      - lint
+      # - test
+
+  lint:
+    commands:
+      - ameba
+    can_fail: true
+
+  test:
+    commands:
+      - crystal spec
+
+  docs:
+    commands:
+      - crystal
