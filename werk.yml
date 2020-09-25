@@ -6,7 +6,7 @@ jobs:
       - shards build
     needs:
       - lint
-      # - test
+      - test
 
   lint:
     commands:

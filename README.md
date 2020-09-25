@@ -2,6 +2,10 @@
 
 TODO: Write a description here
 
+## Build status
+
+![CI](https://github.com/marghidanu/decompose/workflows/CI/badge.svg?branch=master)
+
 ## Installation
 
 ```
