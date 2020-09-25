@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  quality:
+    runs-on: macos-latest
+
+  test:
+    runs-on: macos-latest
+    needs: quality
+
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+
+    steps:
+      - name: Install prerequisites
+        run: brew install crystal ameba
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Lint
+        run: ameba
+
+      - name: Install dependencies
+        run: shards install
+
+      - name: Run tests
+        run: crystal spec
