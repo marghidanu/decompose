@@ -17,7 +17,10 @@ jobs:
 
     steps:
       - name: Install prerequisites
-        run: brew install crystal ameba
+        run: |
+          brew install crystal
+          brew tap veelenga/tap
+          brew install ameba
 
       - name: Checkout
         uses: actions/checkout@v2
